@@ -3,15 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
+    "concurrently": "^4.1.2",
+    "fetch-readablestream": "^0.2.0",
+    "json-server": "^0.15.1",
+    "leaflet": "^1.5.1",
+    "leaflet.markercluster": "^1.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-leaflet": "^2.4.0",
+    "react-leaflet-choropleth": "^2.0.0",
+    "react-leaflet-markercluster": "^2.0.0-rc3",
     "react-scripts": "3.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently --kill-others \"react-scripts start\" \"json-server --watch coords.json --port 3001\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server --watch coords.json --port 3001"
   },
   "eslintConfig": {
     "extends": "react-app"
